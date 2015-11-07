@@ -42,6 +42,13 @@ remote_file '/root/cudaHashcat-1.37.7z' do
 end
 
 execute 'hashcat_unpack' do
-    command '/usr/bin/7za x -o/opt /root/cudaHashcat-1.37.7z'
-    command 'ln -sf /opt/cudaHashcat-1.37 /opt/hashcat'
+    command '/usr/bin/7za x -o/root /root/cudaHashcat-1.37.7z'
 end
+
+template '/root/cudaHashcat-1.37/eula.accepted' do
+    source 'eula.accepted'
+    owner 'root'
+    group 'root'
+    mode '0755'
+end
+
