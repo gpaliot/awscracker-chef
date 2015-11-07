@@ -29,7 +29,6 @@ end
 execute 'nvidia_installer' do
       command '/root/NVIDIA-Linux-x86_64-352.55.run -s'
       ignore_failure true
-      #creates ''
 end
 
 
@@ -45,5 +44,4 @@ end
 execute 'hashcat_unpack' do
     command '/usr/bin/7za x -o/opt /root/cudaHashcat-1.37.7z'
     command 'ln -sf /opt/cudaHashcat-1.37 /opt/hashcat'
-    creates '/opt/hashcat'
 end
