@@ -3,6 +3,15 @@
 # Recipe:: default
 #
 
+# enable EPEL
+template '/etc/yum.repos.d/epel.repo' do
+    source 'epel.repo'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    backup 5
+end
+
 # install packages
 package 'bash-completion'
 package 'p7zip'
@@ -17,10 +26,11 @@ remote_file '/root/NVIDIA-Linux-x86_64-352.55.run' do
   action :create
 end
 
-#execute 'nvidia_installer' do
-      #command '/root/NVIDIA-Linux-x86_64-352.55.run -s'
+execute 'nvidia_installer' do
+      command '/root/NVIDIA-Linux-x86_64-352.55.run -s'
+      ignore_failure true
       #creates ''
-#end
+end
 
 
 # install cudaHashcat
