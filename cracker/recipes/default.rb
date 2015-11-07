@@ -6,7 +6,7 @@
 # install packages
 package 'bash-completion'
 package 'p7zip'
-package 'Development tools'
+#package 'Development tools'
 
 # install Nvidia driver
 remote_file '/root/NVIDIA-Linux-x86_64-352.55.run' do
